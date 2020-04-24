@@ -188,7 +188,7 @@ extern const uint16_t numfont16x22[];
 #define S_PI    "\034"
 #define S_MICRO "\035"
 #define S_OHM   "\036"
-// trace 
+// trace
 
 #define TRACES_MAX 4
 
@@ -311,8 +311,8 @@ extern volatile uint8_t redraw_request;
 #define DEFAULT_FG_COLOR            RGB565(255,255,255)
 #define DEFAULT_BG_COLOR            RGB565(  0,  0,  0)
 #define DEFAULT_GRID_COLOR          RGB565(128,128,128)
-#define DEFAULT_MENU_COLOR          RGB565(255,255,255)
-#define DEFAULT_MENU_TEXT_COLOR     RGB565(  0,  0,  0)
+#define DEFAULT_MENU_COLOR          RGB565(100,100,100)
+#define DEFAULT_MENU_TEXT_COLOR     RGB565(255,255,255)
 #define DEFAULT_MENU_ACTIVE_COLOR   RGB565(180,255,180)
 #define DEFAULT_TRACE_1_COLOR       RGB565(255,255,  0)
 #define DEFAULT_TRACE_2_COLOR       RGB565(  0,255,255)
@@ -371,7 +371,7 @@ typedef struct properties {
   uint32_t _frequencies[POINTS_COUNT];
   float _cal_data[5][POINTS_COUNT][2];
   float _electrical_delay; // picoseconds
-  
+
   trace_t _trace[TRACES_MAX];
   marker_t _markers[MARKERS_MAX];
 
