@@ -1,23 +1,11 @@
-NanoVNA - Very tiny handheld Vector Network Analyzer
+NanoVNA - W3AXL Fork
 ==========================================================
-
-[![GitHub release](http://img.shields.io/github/release/ttrftech/NanoVNA.svg?style=flat)][release]
-[![CircleCI](https://circleci.com/gh/ttrftech/NanoVNA.svg?style=shield)](https://circleci.com/gh/ttrftech/NanoVNA)
-
-[release]: https://github.com/ttrftech/NanoVNA/releases
-
-<div align="center">
-<img src="/doc/nanovna.jpg" width="480px">
-</div>
 
 # About
 
-NanoVNA is very tiny handheld Vector Network Analyzer (VNA). It is
-standalone with lcd display, portable device with battery. This
-project aim to provide an RF gadget but useful instrument for
-enthusiast.
+This repository is W3AXL's modified NanoVNA code. Everything in here could easily break anything so don't go downloading it all willy-nilly.
 
-This repository contains source of NanoVNA firmware.
+# Building
 
 ## Prepare ARM Cross Tools
 
