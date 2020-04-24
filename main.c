@@ -735,10 +735,10 @@ VNA_SHELL_FUNCTION(cmd_gamma)
   float gamma[2];
   (void)argc;
   (void)argv;
-  
+
   pause_sweep();
   chMtxLock(&mutex);
-  wait_dsp(4);  
+  wait_dsp(4);
   calculate_gamma(gamma);
   chMtxUnlock(&mutex);
 
@@ -946,7 +946,7 @@ update_marker_index(void)
           markers[m].index = f < (frequencies[i] / 2 + frequencies[i + 1] / 2) ? i : i + 1;
           break;
         }
-      }      
+      }
     }
   }
 }
@@ -1362,7 +1362,7 @@ cal_done(void)
     eterm_set(ETERM_ER, 1.0, 0.0);
     eterm_set(ETERM_ES, 0.0, 0.0);
   }
-    
+
   if (!(cal_status & CALSTAT_ISOLN))
     eterm_set(ETERM_EX, 0.0, 0.0);
   if (cal_status & CALSTAT_THRU) {
@@ -1929,7 +1929,7 @@ VNA_SHELL_FUNCTION(cmd_gain)
     return;
   }
   rvalue = my_atoi(argv[0]);
-  if (argc == 2) 
+  if (argc == 2)
     lvalue = my_atoi(argv[1]);
   tlv320aic3204_set_gain(lvalue, rvalue);
 }
@@ -2076,7 +2076,7 @@ VNA_SHELL_FUNCTION(cmd_color)
 #if CH_CFG_USE_REGISTRY == FALSE
 #error "Threads Requite enabled CH_CFG_USE_REGISTRY in chconf.h"
 #endif
-VNA_SHELL_FUNCTION(cmd_threads) 
+VNA_SHELL_FUNCTION(cmd_threads)
 {
   static const char *states[] = {CH_STATE_NAMES};
   thread_t *tp;
@@ -2389,6 +2389,7 @@ int main(void)
   i2sStartExchange(&I2SD2);
 
   ui_init();
+
   //Initialize graph plotting
   plot_init();
   redraw_frame();
@@ -2433,7 +2434,7 @@ void HardFault_Handler(void)
   hard_fault_handler_c(sp);
 }
 
-void hard_fault_handler_c(uint32_t *sp) 
+void hard_fault_handler_c(uint32_t *sp)
 {
   (void)sp;
   while (true) {

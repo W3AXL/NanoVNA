@@ -2275,7 +2275,6 @@ void
 ui_init()
 {
   adc_init();
-
   /*
    * Activates the EXT driver 1.
    */
