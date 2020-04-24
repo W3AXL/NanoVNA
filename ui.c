@@ -341,7 +341,7 @@ touch_draw_test(void)
 {
   int x0, y0;
   int x1, y1;
-  
+
   adc_stop();
 
   ili9341_set_foreground(DEFAULT_FG_COLOR);
@@ -404,7 +404,7 @@ enter_dfu(void)
   int x = 5, y = 5;
   ili9341_set_foreground(DEFAULT_FG_COLOR);
   ili9341_set_background(DEFAULT_BG_COLOR);
-  // leave a last message 
+  // leave a last message
   ili9341_clear_screen();
   ili9341_drawstring("DFU: Device Firmware Update Mode", x, y += 10);
   ili9341_drawstring("To exit DFU mode, please reset device yourself.", x, y += 10);
@@ -423,7 +423,7 @@ select_lever_mode(int mode)
   }
 }
 
-// type of menu item 
+// type of menu item
 enum {
   MT_NONE,
   MT_BLANK,
@@ -535,7 +535,7 @@ menu_save_cb(int item, uint8_t data)
   }
 }
 
-static void 
+static void
 choose_active_trace(void)
 {
   int i;
@@ -638,7 +638,7 @@ menu_bandwidth_cb(int item)
   draw_menu();
 }
 
-static void 
+static void
 choose_active_marker(void)
 {
   int i;
@@ -738,7 +738,7 @@ menu_marker_op_cb(int item, uint8_t data)
     }
     break;
   case 4: /* MARKERS->EDELAY */
-    { 
+    {
       if (uistat.current_trace == -1)
         break;
       float (*array)[2] = measured[trace[uistat.current_trace].channel];
@@ -830,7 +830,7 @@ menu_marker_sel_cb(int item, uint8_t data)
       for (t = 0; t < MARKERS_MAX; t++)
         markers[t].enabled = FALSE;
       previous_marker = -1;
-      active_marker = -1;      
+      active_marker = -1;
   } else if (item == 5) { /* marker delta */
     uistat.marker_delta = !uistat.marker_delta;
   }
@@ -951,7 +951,7 @@ const menuitem_t menu_display[] = {
   { MT_SUBMENU, 0, "SCALE", menu_scale },
   { MT_SUBMENU, 0, "CHANNEL", menu_channel },
   { MT_SUBMENU, 0, "TRANSFORM", menu_transform },
-  { MT_SUBMENU, 0, "BANDWIDTH", menu_bandwidth },  
+  { MT_SUBMENU, 0, "BANDWIDTH", menu_bandwidth },
   { MT_CANCEL, 0, S_LARROW" BACK", NULL },
   { MT_NONE, 0, NULL, NULL } // sentinel
 };
@@ -1047,7 +1047,7 @@ const menuitem_t menu_config[] = {
 const menuitem_t menu_top[] = {
   { MT_SUBMENU, 0, "DISPLAY", menu_display },
   { MT_SUBMENU, 0, "MARKER", menu_marker },
-  { MT_SUBMENU, 0, "STIMULUS", menu_stimulus },
+  { MT_SUBMENU, 0, "FREQ", menu_stimulus },
   { MT_SUBMENU, 0, "CAL", menu_cal },
   { MT_SUBMENU, 0, "RECALL", menu_recall },
   { MT_SUBMENU, 0, "CONFIG", menu_config },
@@ -1425,7 +1425,7 @@ draw_menu_buttons(const menuitem_t *menu)
     if (ui_mode == UI_MENU && i == selection)
       bg = config.menu_active_color;
     ili9341_fill(320-MENU_BUTTON_WIDTH, y, MENU_BUTTON_WIDTH, MENU_BUTTON_HEIGHT-2, bg);
-    
+
     menu_item_modify_attribute(menu, i, &fg, &bg);
     ili9341_set_foreground(fg);
     ili9341_set_background(bg);
