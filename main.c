@@ -2389,7 +2389,8 @@ int main(void)
   i2sStartExchange(&I2SD2);
 
   ui_init();
-
+  // boot screen
+  boot_screen();
   //Initialize graph plotting
   plot_init();
   redraw_frame();

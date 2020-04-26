@@ -22,7 +22,7 @@
 #include "hal.h"
 #include "chprintf.h"
 #include "nanovna.h"
-//#include <stdlib.h>
+#include <stdlib.h>
 #include <string.h>
 
 uistat_t uistat = {
@@ -2288,4 +2288,18 @@ ui_init()
 #endif
 
   touch_start_watchdog();
+}
+
+void boot_screen() {
+  uint32_t timerStart = chVTGetSystemTime();
+  ili9341_fill(0,0,320,240,RGB565(100,100,100));
+  ili9341_set_background(RGB565(100,100,100));
+  ili9341_set_foreground(RGB565(200,200,200));
+  ili9341_drawstring_size("NanoVNA",32,32,6);
+  ili9341_drawstring_size("W3AXL Custom Firmware",32,80,2);
+  ili9341_drawstring_size("build " __DATE__ " " __TIME__, 32,100,1);
+  // wait 4 seconds
+  while (chVTGetSystemTime() < (timerStart + 40000)) {
+    __NOP();
+  }
 }
